@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Detection Microservice
+  description: >-
+    Documentation for the Detection microservice. It allows to perform detection based on input requests
+    written in natural language.
+  contact:
+    email: support@ridgerun.com
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Detection Microservice
+  url: https://developer.ridgerun.com
+
+
+paths:
+  /search:
+    get:
+      summary: Searchs objects prompted
+      description: Query for objects detection in input video
+      operationId: search_objects
+      parameters:
+        - in: query
+          name: objects
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            minItems: 1
+          style: simple
+          description: The objects to be search
+          example: [a car, a ball]
+        - in: query
+          name: thresholds
+          required: true
+          schema:
+            type: array
+            items:
+              type: float
+            minItems: 1
+          style: simple
+          description: The detection score threshold for each object or a single threshold for all the objects
+          examples:
+            multiple:
+              value: [0.2, 0.3]
+              summary: A score threshold for each object
+            single:
+              value: [0.2]
+              summary: A single threshold for all the objects
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Operation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+  /source:
+    put:
+      summary: Change video source
+      description: Change video source to the VST's stream with the given name
+      operationId: change_source
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+          description: The name of stream in VST
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Operation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
