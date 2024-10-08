@@ -1,4 +1,4 @@
-## RidgeRun Detection Microservice 1.0.0
+## RidgeRun Detection Microservice 1.0.1
 
 Detection Microservice detects in the input stream the target objects described in a text prompt.
 The microservice uses the NanoOwl generative AI model that allows open vocabulary detection.

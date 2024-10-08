@@ -21,7 +21,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="detection",
-    version="1.0.0",
+    version="1.0.1",
     author='RidgeRun LLC',
     author_email='support@ridgerun.com',
     description="RidgeRun Detection Microservice",

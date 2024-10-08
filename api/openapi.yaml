@@ -6,7 +6,7 @@ info:
     written in natural language.
   contact:
     email: support@ridgerun.com
-  version: 1.0.0
+  version: 1.0.1
 externalDocs:
   description: Find out more about Detection Microservice
   url: https://developer.ridgerun.com/wiki/index.php/Metropolis_Microservices/RidgeRun_Services/Detection
